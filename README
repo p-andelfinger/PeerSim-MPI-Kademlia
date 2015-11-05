@@ -1,0 +1,30 @@
+PeerSim-Kademlia-MPI is a distributed simulator for large-scale peer-to-peer
+networks based on the Kademlia protocol. The simulator is highly scalable and
+has been shown to support simulations of Kademlia networks comprised of up to 10
+million peers. Communication between simulation machines is handled using the
+Message Passing Interface (MPI), allowing the simulator to be deployed in a
+variety of environments.
+
+The simulator code is based on PeerSim, a scalable simulator for peer-to-peer
+networks developed by researchers at University of Szeged, University of Trento
+and the University of Bologna.
+
+The archive includes the Java sources for the simulation engine as well as C++
+sources of a MPI wrapper enabling the use of the simulator with MPI variants
+that do not include Java bindings.
+
+USAGE INSTRUCTIONS:
+
+1. Compile the C++-based MPI wrapper using the provided Makefile by typing
+   'make'. An MPI library is required for compilation. The wrapper was
+   successfully tested with OpenMPI and Intel MPI.
+
+2. Execute a simulation for the default scenario using the command line 'mpirun
+   -n [NUMBER OF PROCESSES] wrapper [HEAP MEMORY IN MB]'. For detailed
+   configuration of the execution of the simulation processes on the available
+   machines and for tuning of interconnects, please consult the manual of your
+   MPI installation.
+
+The simulator expects a file 'scenario.cfg' containing the scenario parameters
+to exist in the path from where the MPI processes are started. The scenario file
+format is described in the PeerSim documentation.
